@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Grade Calculator</title>
+  </head>
+  <body>
+    <div class="waviy">
+      <span style="--i: 1">G</span>
+      <span style="--i: 2">R</span>
+      <span style="--i: 3">A</span>
+      <span style="--i: 4">D</span>
+      <span style="--i: 5">I</span>
+      <span style="--i: 6">N</span>
+      <span style="--i: 7">G</span>
+    </div>
+    <div class="box">
+      <label for="numOfCorrect">Number of Correct Answers:</label>
+      <input type="number" id="numOfCorrect" />
+      <br /><br />
+      <label for="numOfItems">Total Number of Items:</label>
+      <input type="number" id="numOfItems" />
+      <br />
+      <button onclick="calculateGrade()">Calculate Grade</button>
+      <button onclick="ClearFields()">Clear</button>
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="result"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function calculateGrade() {
+        var numOfCorrect = parseInt(
+          document.getElementById("numOfCorrect").value
+        );
+        var numOfItems = parseInt(document.getElementById("numOfItems").value);
+
+        if (
+          isNaN(numOfCorrect) ||
+          isNaN(numOfItems) ||
+          numOfCorrect < 0 ||
+          numOfItems < 0 ||
+          numOfCorrect > numOfItems
+        ) {
+          document.getElementById("result").innerHTML =
+            "Invalid input. Please enter valid numbers.";
+        } else {
+          var egrade = (numOfCorrect / numOfItems) * 60 + 40;
+          var remark;
+
+          if (egrade >= 75 && egrade <= 80) {
+            remark = "NOT BAD";
+          } else if (egrade >= 81 && egrade <= 85) {
+            remark = "GOOD";
+          } else if (egrade >= 86 && egrade <= 90) {
+            remark = "VERY GOOD";
+          } else if (egrade >= 91 && egrade <= 95) {
+            remark = "MAY FUTURE KA";
+          } else if (egrade >= 96 && egrade <= 100) {
+            remark = "PDE NA MAG ASAWA";
+          } else {
+            remark = "SORRY, KULANG PA SA EFFORT...";
+          }
+
+          document.getElementById("result").innerHTML =
+            "Equivalent Grade: " + egrade.toFixed(2) + "<br>Remark: " + remark;
+        }
+      }
+      function ClearFields() {
+        document.getElementById("numOfCorrect").value = "0";
+        document.getElementById("numOfItems").value = "0";
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

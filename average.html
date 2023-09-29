@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Average</title>
+  </head>
+  <body>
+    <div class="waviy">
+      <span style="--i: 1">A</span>
+      <span style="--i: 2">V</span>
+      <span style="--i: 3">E</span>
+      <span style="--i: 4">R</span>
+      <span style="--i: 5">A</span>
+      <span style="--i: 6">G</span>
+      <span style="--i: 7">E</span>
+    </div>
+    <div class="box">
+      <label for="q1">Quiz 1:</label>
+      <input type="number" id="q1" onfocus="this.value=''" value="0" />
+
+      <label for="q2">Quiz 2:</label>
+      <input type="number" id="q2" onfocus="this.value=''" value="0" />
+
+      <label for="q3">Quiz 3:</label>
+      <input type="number" id="q3" onfocus="this.value=''" value="0" />
+
+      <label for="q4">Quiz 4:</label>
+      <input type="number" id="q4" onfocus="this.value=''" value="0" />
+      <br /><br />
+
+      <button onclick="computeAve()">Compute</button>
+      <button onclick="ClearFields()">Clear</button><br /><br />
+      <h3 style="background-color: #48647a; z-index: 1">
+        <span id="average"></span>
+      </h3>
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="remark"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function computeAve() {
+        var q1 = parseFloat(document.getElementById("q1").value);
+        var q2 = parseFloat(document.getElementById("q2").value);
+        var q3 = parseFloat(document.getElementById("q3").value);
+        var q4 = parseFloat(document.getElementById("q4").value);
+
+        if (isNaN(q1) || isNaN(q2) || isNaN(q3) || isNaN(q4)) {
+          alert("Please enter valid grades.");
+          return;
+        }
+
+        if (
+          q1 < 50 ||
+          q1 > 100 ||
+          q2 < 50 ||
+          q2 > 100 ||
+          q3 < 50 ||
+          q3 > 100 ||
+          q4 < 50 ||
+          q4 > 100
+        ) {
+          alert("Grades must be between 50 and 100.");
+          return;
+        }
+
+        var aq = (q1 + q2 + q3 + q4) / 4;
+
+        document.getElementById("average").innerHTML = "Average: " + aq;
+
+        if (aq >= 75) {
+          document.getElementById("remark").innerHTML =
+            "Congratulations. You Passed the quiz.";
+        } else {
+          document.getElementById("remark").innerHTML =
+            "Sorry, but unfortunately, you Failed the quiz.";
+        }
+      }
+
+      function ClearFields() {
+        document.getElementById("q1").value = "0";
+        document.getElementById("q2").value = "0";
+        document.getElementById("q3").value = "0";
+        document.getElementById("q4").value = "0";
+        document.getElementById("average").innerHTML = "";
+        document.getElementById("remark").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

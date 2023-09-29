@@ -1,0 +1,212 @@
+body {
+  background-image: url("img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  height: 500px;
+  margin-top: 10px;
+  margin: 0 15px;
+}
+
+.btnMain {
+  width: 100%;
+  height: 130px;
+  font-size: 30px;
+  border-radius: 30px;
+  background-color: #6088a8;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  transition-duration: 0.5s;
+  font-weight: bold;
+  font-family: "Lucida Console", Arial;
+}
+
+.btnMain:hover {
+  cursor: pointer;
+  background-color: #37556e;
+  color: white;
+  border: none;
+  border: 2px solid #37556e;
+  font-size: 40px;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 50px;
+  font-family: "Trebuchet MS Bold", Arial;
+  color: #c4d8ee;
+  text-shadow: -3px -3px 0 #425f80, /* Top-left shadow */ 3px -3px 0 #425f80,
+    /* Top-right shadow */ -3px 3px 0 #425f80,
+    /* Bottom-left shadow */ 3px 3px 0 #425f80; /* Bottom-right shadow */
+}
+
+/*For Cellphone Screens*/
+@media (min-width: 200px) and (max-width: 549px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .Title {
+    font-size: 200%;
+  }
+
+  .waviy {
+    margin-left: 100%;
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 900px;
+    color: rgb(177, 177, 177);
+    font-size: 10px;
+  }
+}
+
+/* For very small screens */
+@media (min-width: 550px) and (max-width: 1199px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 900px;
+    color: rgb(129, 129, 129);
+  }
+}
+
+/*For small*/
+@media (min-width: 1200px) and (max-width: 1453px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 130px;
+    margin-left: 620px;
+    color: rgb(179, 179, 179);
+  }
+}
+
+/* For medium screens */
+@media (min-width: 1454px) and (max-width: 1925px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 45px;
+    color: rgb(190, 190, 190);
+  }
+}
+
+/* For large screens */
+@media (min-width: 1926px) and (max-width: 3176px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .Title {
+    margin-top: 1%;
+    font-size: 700%;
+    margin-bottom: -3%;
+  }
+  .btnMain {
+    font-size: 500%;
+    height: 100%;
+    margin-bottom: 20%;
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 25%;
+    font-size: 250%;
+    color: rgb(190, 190, 190);
+  }
+}
+
+/* For large screens */
+@media (min-width: 3177px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .Title {
+    margin-top: 1%;
+    font-size: 700%;
+  }
+  .btnMain {
+    font-size: 500%;
+    height: 100%;
+    margin-bottom: 20%;
+  }
+
+  /*Typewriter*/
+  #container {
+    margin-top: 19%;
+    font-size: 250%;
+    color: rgb(190, 190, 190);
+  }
+}
+
+/*Container*/
+.box {
+  width: 700px;
+  height: 700px;
+  margin: -5px auto;
+  background: #48647a;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-radius: 50px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Lucida Console", Arial;
+  color: white;
+}
+
+input {
+  width: 95%;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-family: "Lucida Console", Arial;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: auto;
+  border-radius: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+h3 {
+  margin-top: 10px;
+  color: white;
+  font-size: 30px;
+}

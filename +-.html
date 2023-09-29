@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  
+    <title>Positive or Negative</title>
+  </head>
+    <div class="waviy">
+      <span style="--i: 1">P</span>
+      <span style="--i: 2">O</span>
+      <span style="--i: 3">S</span>
+      <span style="--i: 4">I</span>
+      <span style="--i: 5">T</span>
+      <span style="--i: 6">I</span>
+      <span style="--i: 7">V</span>
+      <span style="--i: 8">E</span>
+      <span style="--i: 9">/</span>
+      <span style="--i: 10">N</span>
+      <span style="--i: 11">E</span>
+      <span style="--i: 112">G</span>
+      <span style="--i: 13">A</span>
+      <span style="--i: 14">T</span>
+      <span style="--i: 15">I</span>
+      <span style="--i: 16">V</span>
+      <span style="--i: 17">E</span>
+    </div>
+
+    <div class="box">
+      <label for="num1">Enter a Number:</label>
+      <input type="number" id="num1" onfocus="this.value=''" value="0" />
+      <br /><br /><br /><br />
+      <button onclick="checkNumber()">Check</button>
+      <br /><br /><br /><br />
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="result"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function checkNumber() {
+        var number = parseFloat(document.getElementById("num1").value);
+
+        if (isNaN(number)) {
+          document.getElementById("result").innerHTML =
+            "Please enter a valid number.";
+        } else {
+          if (number > 0) {
+            document.getElementById("result").innerHTML =
+              number + " is a positive number.";
+          } else if (number < 0) {
+            document.getElementById("result").innerHTML =
+              number + " is a negative number.";
+          } else {
+            document.getElementById("result").innerHTML = "The number is zero.";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

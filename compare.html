@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Comparing Two Numbers</title>
+  </head>
+  <body>
+    <div class="waviy">
+      <span style="--i: 1">C</span>
+      <span style="--i: 2">O</span>
+      <span style="--i: 3">M</span>
+      <span style="--i: 4">P</span>
+      <span style="--i: 5">A</span>
+      <span style="--i: 6">R</span>
+      <span style="--i: 7">I</span>
+      <span style="--i: 8">N</span>
+      <span style="--i: 9">G</span>
+    </div>
+    <div class="box">
+      <label for="num1">Number 1:</label>
+      <input
+        type="number"
+        id="num1"
+        onfocus="this.value=''"
+        value="0"
+      /><br /><br />
+
+      <label for="num2">Number 2:</label>
+      <input
+        type="number"
+        id="num2"
+        onfocus="this.value=''"
+        value="0"
+      /><br /><br />
+
+      <button onclick="compare()">Compare</button>
+      <button onclick="ClearFields()">Clear</button><br /><br />
+
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="result"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function compare() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        if (num1 > num2) {
+          document.getElementById("result").textContent =
+            "First is GREATER THAN the Second.";
+        } else if (num1 < num2) {
+          document.getElementById("result").textContent =
+            "First is LESS THAN the Second.";
+        } else {
+          document.getElementById("result").textContent =
+            "First is EQUIVALENT to the Second.";
+        }
+      }
+
+      function ClearFields() {
+        document.getElementById("num1").value = "0";
+        document.getElementById("num2").value = "0";
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

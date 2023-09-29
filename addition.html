@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Addition of Two Numbers</title>
+  </head>
+  <body>
+    <div class="waviy">
+      <span style="--i: 1">A</span>
+      <span style="--i: 2">D</span>
+      <span style="--i: 3">D</span>
+      <span style="--i: 4">I</span>
+      <span style="--i: 5">T</span>
+      <span style="--i: 6">I</span>
+      <span style="--i: 7">O</span>
+      <span style="--i: 8">N</span>
+    </div>
+    <div class="box">
+      <label for="num1">Number 1:</label>
+      <input type="number" id="num1" onfocus="this.value=''" value="0" />
+      <br /><br />
+
+      <label for="num2">Number 2:</label>
+      <input
+        type="number"
+        id="num2"
+        onfocus="this.value=''"
+        value="0"
+      /><br /><br />
+
+      <button onclick="addNumbers()">Add</button>
+      <button onclick="ClearFields()">Clear</button><br /><br />
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="result"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addNumbers() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Please enter valid numbers in both fields.");
+          return;
+        }
+
+        var result = num1 + num2;
+        document.getElementById("result").innerHTML = "Result: " + result;
+      }
+
+      function ClearFields() {
+        document.getElementById("num1").value = "";
+        document.getElementById("num2").value = "";
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

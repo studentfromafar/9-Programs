@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-animation.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Number Operations</title>
+  </head>
+  <body>
+    <div class="waviy">
+      <span style="--i: 1">N</span>
+      <span style="--i: 2">U</span>
+      <span style="--i: 3">M</span>
+      <span style="--i: 4">B</span>
+      <span style="--i: 5">E</span>
+      <span style="--i: 6">R</span>
+      <span style="--i: 7">O</span>
+      <span style="--i: 8">P</span>
+      <span style="--i: 9">E</span>
+      <span style="--i: 10">R</span>
+      <span style="--i: 11">A</span>
+      <span style="--i: 12">T</span>
+      <span style="--i: 13">I</span>
+      <span style="--i: 14">O</span>
+      <span style="--i: 15">N</span>
+    </div>
+    <div class="box">
+      <label for="num1">Enter First Number:</label>
+      <input type="number" id="num1" onfocus="this.value=''" value="0" />
+      <br /><br /><br />
+      <label for="num2">Enter Second Number:</label>
+      <input type="number" id="num2" onfocus="this.value=''" value="0" />
+      <br /><br /><br />
+      <button onclick="performOperation()">Perform Operation</button>
+      <br /><br /><br /><br /><br /><br /><br />
+      <h3 style="margin-bottom: -20px; background-color: #48647a; z-index: 1">
+        <span id="result"></span>
+      </h3>
+
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function performOperation() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        // Check if either of the inputs is NaN (Not-a-Number)
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+        } else {
+          var operationResult;
+
+          if (num1 === num2) {
+            operationResult = num1 - num2;
+          } else if (num1 > num2) {
+            operationResult = num1 + num2;
+          } else {
+            operationResult = num1 * num2;
+          }
+
+          document.getElementById("result").innerHTML =
+            "Result: " + operationResult;
+        }
+      }
+    </script>
+  </body>
+</html>
